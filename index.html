@@ -5,259 +5,325 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estratégia Legislativa 2026 - Renata Daguiar</title>
     <style>
-        body { font-family: 'Arial', sans-serif; line-height: 1.25; color: #1a1a1a; margin: 40px; background-color: #ffffff; }
-        h1 { color: #4A154B; border-bottom: 3px solid #7B2CBF; padding-bottom: 12px; font-size: 26px; margin-top: 0; text-transform: uppercase; letter-spacing: 1px; }
-        h2 { color: #6A1B9A; margin-top: 35px; border-bottom: 1px solid #E1BEE7; padding-bottom: 5px; font-size: 22px; }
-        h3 { color: #8E24AA; font-size: 16px; margin-top: 20px; font-weight: bold; }
-        p { text-align: justify; margin-bottom: 15px; font-size: 14px; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; background-color: #ffffff; }
-        th { background-color: #4A154B; color: white; padding: 12px; text-align: left; font-weight: bold; font-size: 14px; text-transform: uppercase; }
-        td { border: 1px solid #E1BEE7; padding: 12px; vertical-align: top; font-size: 13.5px; }
-        tr:nth-child(even) { background-color: #F9F3FC; }
-        ul { margin-top: 5px; padding-left: 20px; font-size: 14px; }
-        li { margin-bottom: 8px; }
-        .destaque { font-weight: bold; color: #4A154B; font-size: 14.5px; display: block; margin-bottom: 4px; }
-        .subtitulo-projeto { font-style: italic; color: #666666; font-size: 12px; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.5; color: #2d2d2d; margin: 40px auto; max-width: 1100px; background-color: #fcfaff; padding: 0 20px; }
         
         /* Layout do Cabeçalho com Foto */
-        .header-container { display: flex; align-items: center; justify-content: space-between; padding: 30px; background-color: #F3E5F5; border-radius: 8px; margin-bottom: 4px; border: 1px solid #E1BEE7; }
-        .header-text { flex: 1; text-align: left; padding-right: 20px; }
-        .header-photo { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #4A154B; object-fit: cover; box-shadow: 0px 4px 8px rgba(0,0,0,0.1); }
+        .header-container { display: flex; align-items: center; justify-content: space-between; padding: 35px; background-color: #f3e5f5; border-radius: 12px; margin-bottom: 25px; border: 1px solid #e1bee7; box-shadow: 0 4px 6px rgba(123, 44, 191, 0.05); }
+        .header-text { flex: 1; text-align: left; padding-right: 25px; }
+        h1 { color: #4a154b; font-size: 28px; margin: 0; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 800; line-height: 1.2; }
+        .header-container p { margin: 8px 0 0 0; font-size: 14px; color: #555358; }
+        .header-photo { width: 130px; height: 130px; border-radius: 50%; border: 4px solid #7b2cbf; object-fit: cover; box-shadow: 0 6px 12px rgba(0,0,0,0.12); }
 
         /* Botão de Impressão */
-        .no-print-btn { background-color: #6A1B9A; color: white; border: none; padding: 10px 20px; font-size: 14px; font-weight: bold; border-radius: 5px; cursor: pointer; margin-bottom: 20px; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .no-print-btn:hover { background-color: #4A154B; }
+        .no-print-container { text-align: right; margin-bottom: 15px; }
+        .no-print-btn { background-color: #7b2cbf; color: white; border: none; padding: 12px 24px; font-size: 14px; font-weight: bold; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 6px rgba(123, 44, 191, 0.2); transition: background 0.2s, transform 0.1s; }
+        .no-print-btn:hover { background-color: #4a154b; transform: translateY(-1px); }
 
-        /* Ajustes para Impressão / Gerar PDF */
+        /* Estilização dos Blocos Interativos (Accordion) */
+        .accordion-section { background-color: #ffffff; border: 1px solid #e1bee7; border-radius: 8px; margin-bottom: 15px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.02); transition: box-shadow 0.2s; }
+        .accordion-section:hover { box-shadow: 0 4px 8px rgba(123, 44, 191, 0.08); }
+        
+        /* Botão/Título de ativação */
+        .accordion-header { background-color: #ffffff; color: #6a1b9a; padding: 18px 24px; width: 100%; border: none; text-align: left; font-size: 18px; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: space-between; transition: background-color 0.2s; }
+        .accordion-header:hover { background-color: #f9f3fc; }
+        .accordion-header::after { content: '\25B8'; font-size: 14px; color: #7b2cbf; transition: transform 0.2s; }
+        
+        /* Estado Aberto */
+        .accordion-section.active .accordion-header { background-color: #f3e5f5; color: #4a154b; border-bottom: 1px solid #e1bee7; }
+        .accordion-section.active .accordion-header::after { content: '\25BE'; transform: rotate(0deg); }
+
+        /* Conteúdo Interno */
+        .accordion-content { padding: 24px; display: none; background-color: #ffffff; }
+        .accordion-section.active .accordion-content { display: block; }
+
+        /* Estilização das Tabelas */
+        table { width: 100%; border-collapse: collapse; margin: 15px 0 5px 0; background-color: #ffffff; }
+        th { background-color: #4a154b; color: white; padding: 14px; text-align: left; font-weight: 600; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.5px; }
+        td { border: 1px solid #e1bee7; padding: 14px; vertical-align: top; font-size: 14px; line-height: 1.4; }
+        tr:nth-child(even) { background-color: #fdfaff; }
+        
+        .destaque { font-weight: bold; color: #4a154b; font-size: 15px; display: block; margin-bottom: 4px; }
+        .subtitulo-projeto { font-style: italic; color: #666666; font-size: 12px; font-weight: normal; }
+        
+        p { text-align: justify; margin: 0 0 15px 0; font-size: 14.5px; color: #3a383d; }
+        ul { margin: 0; padding-left: 20px; font-size: 14.5px; color: #3a383d; }
+        li { margin-bottom: 10px; }
+
+        /* Ajustes Estritos para Impressão / PDF */
         @media print {
-            body { margin: 20px; color: #000; }
-            .no-print { display: none !important; }
-            .header-container { background-color: #F3E5F5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            tr:nth-child(even) { background-color: #F9F3FC !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-            th { background-color: #4A154B !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            body { margin: 0; padding: 0; color: #000; background-color: #fff; max-width: 100%; }
+            .no-print, .no-print-container { display: none !important; }
+            .accordion-content { display: block !important; padding: 15px 0; }
+            .accordion-header { display: block !important; background-color: transparent !important; color: #4a154b !important; padding: 10px 0 !important; font-size: 20px !important; border-bottom: 2px solid #4a154b !important; font-weight: bold !important; }
+            .accordion-header::after { display: none !important; }
+            .accordion-section { border: none !important; box-shadow: none !important; margin-bottom: 30px; background-color: transparent !important; page-break-inside: avoid; }
+            table { page-break-inside: avoid; }
+            tr { page-break-inside: avoid; page-break-after: auto; }
+            .header-container { background-color: #f3e5f5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            th { background-color: #4a154b !important; color: white !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+            tr:nth-child(even) { background-color: #fdfaff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Botão de controle que some ao imprimir -->
-    <div class="no-print" style="text-align: right;">
-        <button class="no-print-btn" onclick="window.print()">
+    <!-- Botão de controle superior -->
+    <div class="no-print-container">
+        <button class="no-print-btn" onclick="prepararEImprimir()">
             🖨️ Gerar PDF / Imprimir Documento
         </button>
     </div>
 
+    <!-- Cabeçalho Principal -->
     <div class="header-container">
         <div class="header-text">
-            <h1 style="margin: 0; color: #4A154B;">Plano de Consolidação Legislativa — Eleições 2026</h1>
-            <p style="font-size: 17px; color: #6A1B9A; margin: 10px 0 5px 0; font-weight: bold;">Conjunto de Propostas Estruturantes Baseadas em Evidências</p>
-            <p style="font-size: 13px; color: #555555; margin: 5px 0 0 0;"><strong>Destinatária:</strong> Renata Daguiar | Pré-candidata a Deputada Distrital</p>
-            <p style="font-size: 13px; color: #555555; margin: 3px 0 0 0;"><strong>Elaboração:</strong> Ana Carolina Leite de Oliveira (Assessora Técnico Parlamentar) com o suporte da Equipe de Comunicação</p>
+            <h1>Plano de Consolidação Legislativa — Eleições 2026</h1>
+            <p style="font-size: 18px; color: #6a1b9a; font-weight: bold; margin-top: 6px;">Conjunto de Propostas Estruturantes Baseadas em Evidências</p>
+            <p style="margin-top: 12px;"><strong>Destinatária:</strong> Renata Daguiar | Pré-candidata a Deputada Distrital</p>
+            <p style="margin-top: 4px;"><strong>Elaboração:</strong> Ana Carolina Leite de Oliveira (Assessora Técnica Parlamentar) com o suporte da Equipe de Comunicação</p>
         </div>
-        <!-- Puxando a foto direto da raiz do repositório do GitHub -->
         <img src="./renata.jpg" alt="Renata Daguiar" class="header-photo">
     </div>
-    
-    <div style="margin-bottom: 35px;"></div>
 
-    <h2>1. Diretrizes Estratégicas e Posicionamento Político</h2>
-    <p>Este documento consolida as propostas fundamentais para a plataforma política de <strong>Renata Daguiar</strong> para a disputa à Câmara Legislativa do Distrito Federal (CLDF). A estratégia foi desenhada para unificar o histórico e legado da pré-candidata no <em>Instituto Reciclando Futuro</em> e na <em>Secretaria da Mulher</em> com as novas demandas técnicas enviadas pelas equipes de saúde, educação e comunicação.</p>
-    <p>Para garantir viabilidade técnica e evitar o <strong>vício de iniciativa</strong> (barreira jurídica comum que veta projetos de deputados que criam despesas diretas ao Estado), as pautas foram desenhadas sob o modelo de <strong>Políticas Distritais de Diretrizes, Marcos Regulatórios e Indicações Governamentais</strong>. Isso assegura o ineditismo da pauta, concede a "paternidade" política à Renata e blinda os projetos contra vetos do Executivo.</p>
+    <!-- SEÇÃO 1 -->
+    <div class="accordion-section active">
+        <button class="accordion-header" onclick="toggleAccordion(this)">1. Diretrizes Estratégicas e Posicionamento Político</button>
+        <div class="accordion-content">
+            <p>Este documento consolida as propostas fundamentais para a plataforma política de <strong>Renata Daguiar</strong> para a disputa à Câmara Legislativa do Distrito Federal (CLDF). A estratégia foi desenhada para unificar o histórico e legado da pré-candidata no <em>Instituto Reciclando Futuro</em> e na <em>Secretaria da Mulher</em> com as novas demandas técnicas enviadas pelas equipes de saúde, educação e comunicação.</p>
+            <p>Para garantir viabilidade técnica e evitar o <strong>vício de iniciativa</strong> (barreira jurídica comum que veta projetos de deputados que criam despesas diretas ao Estado), as pautas foram desenhadas sob o modelo de <strong>Políticas Distritais de Diretrizes, Marcos Regulatórios e Indicações Governamentais</strong>. Isso assegura o ineditismo da pauta, concede a "paternidade" política à Renata e blinda os projetos contra vetos do Executivo.</p>
+        </div>
+    </div>
 
-    <h2>2. EIXO I: Fortalecimento do Terceiro Setor e Economia Circular</h2>
-    <p>Bandeira de identidade que conecta a atuação prática da pré-candidata com soluções modernas de sustentabilidade, governança e empreendedorismo social.</p>
-    
-    <table>
-        <tr>
-            <th style="width: 28%;">Proposta / Mecanismo Legal</th>
-            <th style="width: 47%;">Escopo Técnico e Inovação</th>
-            <th style="width: 25%;">Apelo Eleitoral / Vetores de Votos</th>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Marco de Fomento aos Negócios de Impacto Social</span>
-                <span class="subtitulo-projeto">Projeto de Lei Distrital</span>
-            </td>
-            <td>Regulamenta incentivos para empresas e cooperativas que unem sustentabilidade financeira e resolução de problemas sociais. Alinha o DF às tendências mundiais de investimentos ESG e critérios de transição ecológica.</td>
-            <td>Diálogo direto com o empresariado moderno, investidores de risco e startups de inovação no DF.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Programa Núcleo de Integração Assistencial</span>
-                <span class="subtitulo-projeto">Projeto de Lei / Parceria Acadêmica</span>
-            </td>
-            <td>Suporte técnico, jurídico e contábil obrigatório para organizações do Terceiro Setor nos primeiros 3 anos de CNPJ. Utiliza fomento e editais de estágio com acadêmicos de Direito, Administração Pública e Economia das faculdades do DF.</td>
-            <td>Resolve a principal dor das pequenas ONGs (burocracia). Conquista o voto jovem universitário por meio de vagas de estágio prático.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Fundo Emergencial do Terceiro Setor</span>
-                <span class="subtitulo-projeto">Indicação ao GDF / Projeto de Diretrizes</span>
-            </td>
-            <td>Institui mecanismos de descentralização e repasses mínimos automáticos para organizações recém-criadas com base territorial periférica, garantindo fôlego institucional até que fiquem aptas a receber emendas.</td>
-            <td>Cria uma rede de gratidão e capilaridade política em lideranças comunitárias nas regiões administrativas (RAs).</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Compras Públicas de Cooperativas</span>
-                <span class="subtitulo-projeto">Projeto de Lei de Diretrizes de Contratos</span>
-            </td>
-            <td>Garante prioridade e cota em contratos de prestação de serviços do GDF para cooperativas de reciclagem e triagem devidamente registradas, fomentando a autonomia de renda estável.</td>
-            <td>Fideliza o voto de causa de milhares de catadores de materiais recicláveis e ativistas ambientais.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Banco Distrital de Materiais e Reuso</span>
-                <span class="subtitulo-projeto">Projeto de Lei do Descarte Sustentável</span>
-            </td>
-            <td>Obrigatoriedade de destinação sistemática e doação de mobiliários, equipamentos eletrônicos e materiais escolares descartados por órgãos do GDF em bom estado para as OSCs e escolas comunitárias cadastradas.</td>
-            <td>Demonstra responsabilidade fiscal, sustentabilidade prática e reduz o custo operacional de pequenas entidades sociais.</td>
-        </tr>
-    </table>
+    <!-- SEÇÃO 2 (EIXO I) -->
+    <div class="accordion-section">
+        <button class="accordion-header" onclick="toggleAccordion(this)">2. EIXO I: Fortalecimento do Terceiro Setor e Economia Circular</button>
+        <div class="accordion-content">
+            <p>Bandeira de identidade que conecta a atuação prática da pré-candidata com soluções modernas de sustentabilidade, governança e empreendedorismo social.</p>
+            <table>
+                <tr>
+                    <th style="width: 28%;">Proposta / Mecanismo Legal</th>
+                    <th style="width: 47%;">Escopo Técnico e Inovação</th>
+                    <th style="width: 25%;">Apelo Eleitoral / Vetores de Votos</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Marco de Fomento aos Negócios de Impacto Social</span>
+                        <span class="subtitulo-projeto">Projeto de Lei Distrital</span>
+                    </td>
+                    <td>Regulamenta incentivos para empresas e cooperativas que unem sustentabilidade financeira e resolução de problemas sociais. Alinha o DF às tendências mundiais de investimentos ESG e critérios de transição ecológica.</td>
+                    <td>Diálogo direto com o empresariado moderno, investidores de risco e startups de inovação no DF.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Programa Núcleo de Integração Assistencial</span>
+                        <span class="subtitulo-projeto">Projeto de Lei / Parceria Acadêmica</span>
+                    </td>
+                    <td>Suporte técnico, jurídico e contábil obrigatório para organizações do Terceiro Setor nos primeiros 3 anos de CNPJ. Utiliza fomento e editais de estágio com acadêmicos de Direito, Administração Pública e Economia das faculdades do DF.</td>
+                    <td>Resolve a principal dor das pequenas ONGs (burocracia). Conquista o voto jovem universitário por meio de vagas de estágio prático.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Fundo Emergencial do Terceiro Setor</span>
+                        <span class="subtitulo-projeto">Indicação ao GDF / Projeto de Diretrizes</span>
+                    </td>
+                    <td>Institui mecanismos de descentralização e repasses mínimos automáticos para organizações recém-criadas com base territorial periférica, garantindo fôlego institucional até que fiquem aptas a receber emendas.</td>
+                    <td>Cria uma rede de gratidão e capilaridade política em lideranças comunitárias nas regiões administrativas (RAs).</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Compras Públicas de Cooperativas</span>
+                        <span class="subtitulo-projeto">Projeto de Lei de Diretrizes de Contratos</span>
+                    </td>
+                    <td>Garante prioridade e cota em contratos de prestação de serviços do GDF para cooperativas de reciclagem e triagem devidamente registradas, fomentando a autonomia de renda estável.</td>
+                    <td>Fideliza o voto de causa de milhares de catadores de materiais recicláveis e ativistas ambientais.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Banco Distrital de Materiais e Reuso</span>
+                        <span class="subtitulo-projeto">Projeto de Lei do Descarte Sustentável</span>
+                    </td>
+                    <td>Obrigatoriedade de destinação sistemática e doação de mobiliários, equipamentos eletrônicos e materiais escolares descartados por órgãos do GDF em bom estado para as OSCs e escolas comunitárias cadastradas.</td>
+                    <td>Demonstra responsabilidade fiscal, sustentabilidade prática e reduz o custo operacional de pequenas entidades sociais.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <div style="margin-bottom: 25px;"></div>
+    <!-- SEÇÃO 3 (EIXO II) -->
+    <div class="accordion-section">
+        <button class="accordion-header" onclick="toggleAccordion(this)">3. EIXO II: Autonomia Econômica, Proteção e Economia do Cuidado</button>
+        <div class="accordion-content">
+            <p>Consolida o protagonismo de Renata na defesa de mulheres vulneráveis, mães solo e famílias com PCDs / pessoas com transtornos do neurodesenvolvimento.</p>
+            <table>
+                <tr>
+                    <th style="width: 28%;">Proposta / Mecanismo Legal</th>
+                    <th style="width: 47%;">Escopo Técnico e Inovação</th>
+                    <th style="width: 25%;">Apelo Eleitoral / Vetores de Votos</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Política de Empregabilidade para Mães Solo e Atípicas</span>
+                        <span class="subtitulo-projeto">Projeto de Lei Distrital</span>
+                    </td>
+                    <td>Institui a reserva de 5% de vagas em contratações públicas terceirizadas do GDF para mães de baixa renda (CadÚnico). Articula junto ao órgão federal a segurança jurídica para flexibilidade laboral sem a perda de benefícios assistenciais (BPC).</td>
+                    <td>Pauta de altíssimo apelo social e emocional. Mobiliza em massa associações de mães atípicas e famílias vulneráveis.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Frente do Cuidado e Selo Empresa Amiga da Mulher</span>
+                        <span class="subtitulo-projeto">Resolução Legislativa / Selo de Incentivo</span>
+                    </td>
+                    <td>Criação de Frente Parlamentar permanente para debater a "Economia do Cuidado" e concessão de incentivos fiscais distritais para empresas privadas que adotarem regimes especiais para mães atípicas.</td>
+                    <td>Pioneirismo temático na CLDF, atraindo o interesse de acadêmicas do feminismo e grandes veículos de comunicação.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Programa Escudo Feminino e Autodefesa</span>
+                        <span class="subtitulo-projeto">Projeto de Lei de Amparo</span>
+                    </td>
+                    <td>Implementa auxílio financeiro para cursos de proteção, apoio jurídico célere e fomento a treinamentos de autodefesa para mulheres vítimas de violência doméstica sob medida protetiva. Criação do Cadastro Distrital de Condenados por Violência Doméstica.</td>
+                    <td>Resposta direta à crise crônica de feminicídios no DF. Atrai o eleitorado feminino indignado que exige segurança prática.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Rede de Acolhimento "Sala Roxa" nos Bairros</span>
+                        <span class="subtitulo-projeto">Indicação Governamental Descentralizada</span>
+                    </td>
+                    <td>Solicitação para a abertura de polos de escuta terapêutica e apoio psicológico continuado em regiões com altos índices de violência contra a mulher. Expande os serviços unificados da Casa da Mulher Brasileira de forma móvel.</td>
+                    <td>Cria bases de apoio comunitário e pontos focais de acolhimento físico com a identidade visual da parlamentar.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <h2>3. EIXO II: Autonomia Econômica, Proteção e Economia do Cuidado</h2>
-    <p>Consolida o protagonismo de Renata na defense de mulheres vulneráveis, mães solo e famílias com PCDs / pessoas com transtornos do neurodesenvolvimento.</p>
+    <!-- SEÇÃO 4 (EIXO III) -->
+    <div class="accordion-section">
+        <button class="accordion-header" onclick="toggleAccordion(this)">4. EIXO III: Saúde Distrital Integrada e Telessaúde</button>
+        <div class="accordion-content">
+            <p>Pacote técnico voltado à reestruturação da eficiência do atendimento médico básico, reduzindo filas crônicas e interiorizando exames de prevenção.</p>
+            <table>
+                <tr>
+                    <th style="width: 28%;">Proposta / Mecanismo Legal</th>
+                    <th style="width: 47%;">Escopo Técnico e Inovação</th>
+                    <th style="width: 25%;">Apelo Eleitoral / Vetores de Votos</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Programa Telessaúde e SUS Digital DF</span>
+                        <span class="subtitulo-projeto">Projeto de Lei de Diretrizes de Saúde</span>
+                    </td>
+                    <td>Regulamenta e incentiva o uso de teleconsultas em postos de saúde periféricos para triagem rápida com médicos especialistas, mitigando as filas do sistema "Fila Zero" de forma descentralizada.</td>
+                    <td>Pauta moderna e inovadora que foca na tecnologia para sanar o principal problema do DF: o tempo de espera no SUS.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Política Distrital contra a Obesidade e Doenças Crônicas</span>
+                        <span class="subtitulo-projeto">Projeto de Lei Estruturante</span>
+                    </td>
+                    <td>Institui linhas de cuidado multidisciplinar obrigatório (médicos, nutricionistas e psicólogos) para hipertensos, diabéticos e obesos. Ampliação das metas de cirurgias bariátricas seguras na rede pública.</td>
+                    <td>Projeto com robusta fundamentação médica, atraindo o voto da comunidade de profissionais de saúde e pacientes crônicos.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Expansão da Saúde Itinerante nos Bairros</span>
+                        <span class="subtitulo-projeto">Indicação de Metas Orçamentárias</span>
+                    </td>
+                    <td>Envio de unidades móveis especializadas (carretas da saúde) para exames preventivos das mulheres (rastreio ginecológico, mamografias e reposição hormonal) em áreas vulneráveis como Sol Nascente, Itapoã e Estrutural.</td>
+                    <td>Garante inserção territorial massiva e gratidão eleitoral imediata nas maiores e mais populosas RAs do DF.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Lei da Transparência Assistencial e Parcerias Filantrópicas</span>
+                        <span class="subtitulo-projeto">Projeto de Lei de Fiscalização</span>
+                    </td>
+                    <td>Obrigatoriedade de divulgação pública atualizada das listas de espera por cirurgias e exames no DF. Facilitação de chamamentos públicos para que hospitais do Terceiro Setor realizem mutirões financiados.</td>
+                    <td>Conecta o combate ao desperdício de recursos e corrupção com o fortalecimento das santas casas e entidades sociais parceiras.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <table>
-        <tr>
-            <th style="width: 28%;">Proposta / Mecanismo Legal</th>
-            <th style="width: 47%;">Escopo Técnico e Inovação</th>
-            <th style="width: 25%;">Apelo Eleitoral / Vetores de Votos</th>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Política de Empregabilidade para Mães Solo e Atípicas</span>
-                <span class="subtitulo-projeto">Projeto de Lei Distrital</span>
-            </td>
-            <td>Institui a reserva de 5% de vagas em contratações públicas terceirizadas do GDF para mães de baixa renda (CadÚnico). Articula junto ao órgão federal a segurança jurídica para flexibilidade laboral sem a perda de benefícios assistenciais (BPC).</td>
-            <td>Pauta de altíssimo apelo social e emocional. Mobiliza em massa associações de mães atípicas e famílias vulneráveis.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Frente do Cuidado e Selo Empresa Amiga da Mulher</span>
-                <span class="subtitulo-projeto">Resolução Legislativa / Selo de Incentivo</span>
-            </td>
-            <td>Criação de Frente Parlamentar permanente para debater a "Economia do Cuidado" e concessão de incentivos fiscais distritais para empresas privadas que adotarem regimes especiais para mães atípicas.</td>
-            <td>Pioneirismo temático na CLDF, atraindo o interesse de acadêmicas do feminismo e grandes veículos de comunicação.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Programa Escudo Feminino e Autodefesa</span>
-                <span class="subtitulo-projeto">Projeto de Lei de Amparo</span>
-            </td>
-            <td>Implementa auxílio financeiro para cursos de proteção, apoio jurídico célere e fomento a treinamentos de autodefesa para mulheres vítimas de violência doméstica sob medida protetiva. Criação do Cadastro Distrital de Condenados por Violência Doméstica.</td>
-            <td>Resposta direta à crise crônica de feminicídios no DF. Atrai o eleitorado feminino indignado que exige segurança prática.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Rede de Acolhimento "Sala Roxa" nos Bairros</span>
-                <span class="subtitulo-projeto">Indicação Governamental Descentralizada</span>
-            </td>
-            <td>Solicitação para a abertura de polos de escuta terapêutica e apoio psicológico continuado em regiões com altos índices de violência contra a mulher. Expande os serviços unificados da Casa da Mulher Brasileira de forma móvel.</td>
-            <td>Cria bases de apoio comunitário e pontos focais de acolhimento físico com a identidade visual da parlamentar.</td>
-        </tr>
-    </table>
+    <!-- SEÇÃO 5 (EIXO IV) -->
+    <div class="accordion-section">
+        <button class="accordion-header" onclick="toggleAccordion(this)">5. EIXO IV: Proteção da Infância, Educação e Valorização Cultural</button>
+        <div class="accordion-content">
+            <p>Ações voltadas à segurança do ambiente escolar, integridade psicológica de alunos e profissionais, inclusão urbana e incentivos financeiros a artistas e comunidades de fé.</p>
+            <table>
+                <tr>
+                    <th style="width: 28%;">Proposta / Mecanismo Legal</th>
+                    <th style="width: 47%;">Escopo Técnico e Inovação</th>
+                    <th style="width: 25%;">Apelo Eleitoral / Vetores de Votos</th>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Programa Pedagógico "Respeite meu Corpo"</span>
+                        <span class="subtitulo-projeto">Projeto de Lei / Campanha Permanente</span>
+                    </td>
+                    <td>Ações integradas em escolas públicas para conscientização e prevenção do abuso infantil. Desenvolvimento de plataforma educativa lúdica com os personagens infantis <em>"Jujuba e Renatinha"</em> e formação de Agentes Protetores escolares.</td>
+                    <td>Pauta humanitária de extrema sensibilidade e apelo absoluto com pais, mães, professores e conselheiros tutelares.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Programa Saúde Pró-Professor</span>
+                        <span class="subtitulo-projeto">Indicação Governamental / Emenda</span>
+                    </td>
+                    <td>Articulação de coparticipação justa em planos de saúde assistenciais para servidores do ensino e criação de Polos de Apoio Psicossocial (com psicólogos dedicados e teleconsultas) nas diretorias de ensino para tratamento de Burnout.</td>
+                    <td>Conversa diretamente e atrai o voto corporativo em bloco dos profissionais da educação, uma das categorias mais organizadas do DF.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Acomodação Sensorial em Espaços Públicos</span>
+                        <span class="subtitulo-projeto">Projeto de Lei de Acessibilidade</span>
+                    </td>
+                    <td>Autoriza o DF a implantar salas silenciosas e zonas de regulação sensorial para pessoas com Transtorno do Espectro Autista (TEA) e neurodivergentes em terminals rodoviários, parques e órgãos de grande circulação (Na Hora).</td>
+                    <td>Visibilidade concreta e urbana da preocupação da candidata com a inclusão e o bem-estar diário das famílias.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="destaque">Lei da Cota Artística Local e Incentivo "Cerrado Gospel"</span>
+                        <span class="subtitulo-projeto">Projeto de Lei de Fomento Cultural</span>
+                    </td>
+                    <td>Reserva obrigatória de 30% dos recursos públicos de grandes eventos para contratação de artistas e bandas locais. Criação de linha de fomento cultural específica para música cristã/gospel, preservando os direitos de matrizes tradicionais.</td>
+                    <td>Garante forte inserção, simpatia e apoio político do segmento evangélico e cristão sem gerar litígios constitucionais, além do apoio unânime da classe artística de Brasília.</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <div style="margin-bottom: 25px;"></div>
+    <!-- SEÇÃO 6 -->
+    <div class="accordion-section">
+        <button class="accordion-header" onclick="toggleAccordion(this)">6. Próximos Passos Recomendados para a Campanha</button>
+        <div class="accordion-content">
+            <ul>
+                <li><strong>Priorização Temática:</strong> Destacar 3 projetos principais para o discurso central de pré-campanha (ex: <em>Mães Atípicas Empreendedoras</em>, <em>Fundo de Apoio Inicial às ONGs</em> e o <em>Programa Respeite meu Corpo</em>). São pautas de forte engajamento emocional e fácil explicação em redes sociais.</li>
+                <li><strong>Produção de Material de Rua:</strong> Utilizar a ideia das personagens infantis (Jujuba e Renatinha) criadas pela equipe de comunicação para desenvolver cartilhas físicas informativas para distribuição em portas de escolas e praças públicas.</li>
+                <li><strong>Rodas de Escuta:</strong> Agendar plenárias temáticas ("Rodas de Escuta da Juventude, Mães e Líderes do 3º Setor") para validar o escopo técnico dessas leis diretamente com os públicos-alvo, colhendo assinaturas de apoio e gerando conteúdo orgânico para as mídias sociais.</li>
+            </ul>
+        </div>
+    </div>
 
-    <h2>4. EIXO III: Saúde Distrital Integrada e Telessaúde</h2>
-    <p>Pacote técnico voltado à reestruturação da eficiência do atendimento médico básico, reduzindo filas crônicas e interiorizando exames de prevenção.</p>
+    <!-- Script de Controle Interativo -->
+    <script>
+        function toggleAccordion(element) {
+            const section = element.parentElement;
+            section.classList.toggle('active');
+        }
 
-    <table>
-        <tr>
-            <th style="width: 28%;">Proposta / Mecanismo Legal</th>
-            <th style="width: 47%;">Escopo Técnico e Inovação</th>
-            <th style="width: 25%;">Apelo Eleitoral / Vetores de Votos</th>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Programa Telessaúde e SUS Digital DF</span>
-                <span class="subtitulo-projeto">Projeto de Lei de Diretrizes de Saúde</span>
-            </td>
-            <td>Regulamenta e incentiva o uso de teleconsultas em postos de saúde periféricos para triagem rápida com médicos especialistas, mitigando as filas do sistema "Fila Zero" de forma descentralizada.</td>
-            <td>Pauta moderna e inovadora que foca na tecnologia para sanar o principal problema do DF: o tempo de espera no SUS.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Política Distrital contra a Obesidade e Doenças Crônicas</span>
-                <span class="subtitulo-projeto">Projeto de Lei Estruturante</span>
-            </td>
-            <td>Institui linhas de cuidado multidisciplinar obrigatório (médicos, nutricionistas e psicólogos) para hipertensos, diabéticos e obesos. Ampliação das metas de cirurgias bariátricas seguras na rede pública.</td>
-            <td>Projeto com robusta fundamentação médica, atraindo o voto da comunidade de profissionais de saúde e pacientes crônicos.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Expansão da Saúde Itinerante nos Bairros</span>
-                <span class="subtitulo-projeto">Indicação de Metas Orçamentárias</span>
-            </td>
-            <td>Envio de unidades móveis especializadas (carretas da saúde) para exames preventivos das mulheres (rastreio ginecológico, mamografias e reposição hormonal) em áreas vulneráveis como Sol Nascente, Itapoã e Estrutural.</td>
-            <td>Garante inserção territorial massiva e gratidão eleitoral imediata nas maiores e mais populosas RAs do DF.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Lei da Transparência Assistencial e Parcerias Filantrópicas</span>
-                <span class="subtitulo-projeto">Projeto de Lei de Fiscalização</span>
-            </td>
-            <td>Obrigatoriedade de divulgação pública atualizada das listas de espera por cirurgias e exames no DF. Facilitação de chamamentos públicos para que hospitais do Terceiro Setor realizem mutirões financiados.</td>
-            <td>Conecta o combate ao desperdício de recursos e corrupção com o fortalecimento das santas casas e entidades sociais parceiras.</td>
-        </tr>
-    </table>
-
-    <div style="margin-bottom: 25px;"></div>
-
-    <h2>5. EIXO IV: Proteção da Infância, Educação e Valorização Cultural</h2>
-    <p>Ações voltadas à segurança do ambiente escolar, integridade psicológica de alunos e profissionais, inclusão urbana e incentivos financeiros a artistas e comunidades de fé.</p>
-
-    <table>
-        <tr>
-            <th style="width: 28%;">Proposta / Mecanismo Legal</th>
-            <th style="width: 47%;">Escopo Técnico e Inovação</th>
-            <th style="width: 25%;">Apelo Eleitoral / Vetores de Votos</th>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Programa Pedagógico "Respeite meu Corpo"</span>
-                <span class="subtitulo-projeto">Projeto de Lei / Campanha Permanente</span>
-            </td>
-            <td>Ações integradas em escolas públicas para conscientização e prevenção do abuso infantil. Desenvolvimento de plataforma educativa lúdica com os personagens infantis <em>"Jujuba e Renatinha"</em> e formação de Agentes Protetores escolares.</td>
-            <td>Pauta humanitária de extrema sensibilidade e apelo absoluto com pais, mães, professores e conselheiros tutelares.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Programa Saúde Pró-Professor</span>
-                <span class="subtitulo-projeto">Indicação Governamental / Emenda</span>
-            </td>
-            <td>Articulação de coparticipação justa em planos de saúde assistenciais para servidores do ensino e criação de Polos de Apoio Psicossocial (com psicólogos dedicados e teleconsultas) nas diretorias de ensino para tratamento de Burnout.</td>
-            <td>Conversa diretamente e atrai o voto corporativo em bloco dos profissionais da educação, uma das categorias mais organizadas do DF.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Acomodação Sensorial em Espaços Públicos</span>
-                <span class="subtitulo-projeto">Projeto de Lei de Acessibilidade</span>
-            </td>
-            <td>Autoriza o DF a implantar salas silenciosas e zonas de regulação sensorial para pessoas com Transtorno do Espectro Autista (TEA) e neurodivergentes em terminais rodoviários, parques e órgãos de grande circulação (Na Hora).</td>
-            <td>Visibilidade concreta e urbana da preocupação da candidata com a inclusão e o bem-estar diário das famílias.</td>
-        </tr>
-        <tr>
-            <td>
-                <span class="destaque">Lei da Cota Artística Local e Incentivo "Cerrado Gospel"</span>
-                <span class="subtitulo-projeto">Projeto de Lei de Fomento Cultural</span>
-            </td>
-            <td>Reserva obrigatória de 30% dos recursos públicos de grandes eventos para contratação de artistas e bandas locais. Criação de linha de fomento cultural específica para música cristã/gospel, preservando os direitos de matrizes tradicionais.</td>
-            <td>Garante forte inserção, simpatia e apoio político do segmento evangélico e cristão sem gerar litígios constitucionais, além do apoio unânime da classe artística de Brasília.</td>
-        </tr>
-    </table>
-
-    <div style="margin-bottom: 25px;"></div>
-
-    <h2>6. Próximos Passos Recomendados para a Campanha</h2>
-    <ul>
-        <li><strong>Priorização Temática:</strong> Destacar 3 projetos principais para o discurso central de pré-campanha (ex: <em>Mães Atípicas Empreendedoras</em>, <em>Fundo de Apoio Inicial às ONGs</em> e o <em>Programa Respeite meu Corpo</em>). São pautas de forte engajamento emocional e fácil explicação em redes sociais.</li>
-        <li><strong>Produção de Material de Rua:</strong> Utilizar a ideia das personagens infantis (Jujuba e Renatinha) criadas pela equipe de comunicação para desenvolver cartilhas físicas informativas para distribuição em portas de escolas e praças públicas.</li>
-        <li><strong>Rodas de Escuta:</strong> Agendar plenárias temáticas ("Rodas de Escuta da Juventude, Mães e Líderes do 3º Setor") para validar o escopo técnico dessas leis diretamente com os públicos-alvo, colhendo assinaturas de apoio e gerando conteúdo orgânico para as mídias sociais.</li>
-    </ul>
+        function prepararEImprimir() {
+            // Abre todas as seções para garantir que o PDF capture tudo
+            const sections = document.querySelectorAll('.accordion-section');
+            sections.forEach(section => {
+                section.classList.add('active');
+            });
+            
+            // Dispara o comando de impressão do navegador
+            setTimeout(() => {
+                window.print();
+            }, 100);
+        }
+    </script>
+</body>
+</html>
 
 </body>
 </html>
